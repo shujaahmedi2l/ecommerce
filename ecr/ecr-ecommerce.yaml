@@ -1,0 +1,11 @@
+apiVersion: ecr.aws.upbound.io/v1beta1
+kind: Repository
+metadata:
+  labels:
+    region: eu-west-1
+  name: "ecommerce"
+spec:
+  forProvider:
+    region: eu-west-1
+  providerConfigRef:
+    name: default

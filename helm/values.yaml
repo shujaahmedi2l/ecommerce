@@ -1,0 +1,77 @@
+replicaCount: 3
+
+image:
+  repository: 696960135893.dkr.ecr.eu-west-1.amazonaws.com/ecommerce
+  tag: 'latest'
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 8078
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ''
+
+resources:
+  limits:
+    cpu: '500'
+  requests:
+    cpu: '250m'
+
+tolerations:
+  - key: dedicated
+    value: apps
+    operator: Equal
+    effect: NoSchedule
+
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 60
+
+alb:
+  enabled: true
+  host: ecommerce
+
+ingress:
+  enabled: false
+  className: 'nginx'
+  annotations:
+    cert-manager.io/issuer: 'letsencrypt-prod'
+
+  hosts:
+    - host: "ecommerce.onexidp.com"
+      paths:
+        - path: '/'
+          pathType: Prefix
+
+  tls:
+    - hosts:
+        - "ecommerce.onexidp.com"
+      secretName: 'tls-secret'
+
+letsencrypt:
+  enabled: true
+  email: 'aram@ideatolife.me'
+db:
+  enabled: true
+livenessProbe:
+  httpGet:
+    path: /
+    port: 8078
+  initialDelaySeconds: 15
+  periodSeconds: 10
+  failureThreshold: 3
+  timeoutSeconds: 3
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: 8078
+  initialDelaySeconds: 15
+  periodSeconds: 10
+  failureThreshold: 3
+  timeoutSeconds: 3

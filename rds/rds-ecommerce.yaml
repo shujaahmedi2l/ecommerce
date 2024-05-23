@@ -1,0 +1,43 @@
+apiVersion: rds.aws.upbound.io/v1beta1
+kind: Instance
+metadata:
+  annotations:
+    meta.upbound.io/example-id: rds/v1beta1/instanceroleassociation
+    uptest.upbound.io/timeout: '3600'
+  labels:
+    testing.upbound.io/example-name: example-dbinstance-ira
+  name: "ecommerce"
+spec:
+  forProvider:
+    allocatedStorage: 20
+    autoGeneratePassword: true
+    autoMinorVersionUpgrade: true
+    caCertIdentifier: rds-ca-rsa2048-g1
+    performanceInsightsEnabled: false
+    backupRetentionPeriod: 0
+    backupWindow: 09:46-10:16
+    dbName: example
+    engine: postgres
+    licenseModel: postgresql-license
+    engineVersion: '16.2'
+    instanceClass: "db.t3.micro"
+    maintenanceWindow: Mon:00:00-Mon:03:00
+    iamDatabaseAuthenticationEnabled: false
+    passwordSecretRef:
+      key: password
+      name: example-dbinstance
+      namespace: "ecommerce"
+    publiclyAccessible: false
+    multiAz: false
+    port: 5432
+    region: "eu-west-1"
+    skipFinalSnapshot: true
+    storageEncrypted: false
+    storageType: gp3
+    dbSubnetGroupName: onexidp-private-db-subnet
+    vpcSecurityGroupIds:
+      - sg-0c48143c0e3bcc07a
+    username: postgres
+  writeConnectionSecretToRef:
+    name: ecommerce-postgresql-secret
+    namespace: "ecommerce"
