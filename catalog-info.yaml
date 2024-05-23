@@ -1,8 +1,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: "ecommerce"
-  description: "shopping application"
+  name: ecommerce
+  description: shopping application
   links:
     - url: https://ecommerce.onexidp.com
       title: Web Application
