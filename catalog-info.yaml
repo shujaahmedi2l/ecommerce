@@ -3,13 +3,13 @@ kind: Component
 metadata:
   name: "ecommerce"
   description: "shopping application"
-  annotations:
-    github.com/project-slug: "shujaahmedi2l/ecommerce"
-    argocd/app-name: "ecommerce"
   links:
     - url: https://ecommerce.onexidp.com
       title: Web Application
       icon: LaunchIcon
+  annotations:
+    github.com/project-slug: "shujaahmedi2l/ecommerce"
+    argocd/app-name: "ecommerce"
 spec:
   type: service
   owner: guests
