@@ -2,7 +2,7 @@ replicaCount: 3
 
 image:
   repository: 696960135893.dkr.ecr.eu-west-1.amazonaws.com/ecommerce
-  tag: 9593596224cf60dc80abd70a87cd99738ed1b25e
+  tag: 98aa1c0a942b44d5f53d5ab090c4ebbc2a37b100
   pullPolicy: Always
 
 service:
