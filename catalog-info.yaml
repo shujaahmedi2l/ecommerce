@@ -4,7 +4,7 @@ metadata:
   name: "ecommerce"
   description: "shopping application"
   links:
-    - url: https://ecommerce.onexidp.com
+      url: https://ecommerce.onexidp.com
       title: Web Application
       icon: LaunchIcon
   annotations:
