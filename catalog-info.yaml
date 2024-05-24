@@ -10,6 +10,7 @@ metadata:
   annotations:
     github.com/project-slug: "shujaahmedi2l/ecommerce"
     argocd/app-name: "ecommerce"
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: service
   owner: guests
