@@ -2,8 +2,6 @@
 
 ## Project Structure
 
-project/
-
 - __content__
    - [Dockerfile](Dockerfile)
    - [README.md](README.md)
