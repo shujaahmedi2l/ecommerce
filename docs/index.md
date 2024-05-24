@@ -3,13 +3,13 @@
 ## Project Structure
 
 project/
-├── app.js
-├── views/
-│ ├── css/
-│ │ └── styles.css
-│ ├── index.html
+│── app.js
+│── views/
+│─ css/
+│ └── styles.css
+│ └── index.html
 │ └── sharks.html
-├── package.json
+│── package.json
 └── README.md
 
 
